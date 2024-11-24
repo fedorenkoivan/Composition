@@ -15,7 +15,8 @@ const compose = (...fns) => {
       for (const handler of handlers) {
         handler(error);
       }
-      return null;
+      // eslint-disable-next-line consistent-return
+      return undefined; // test case wants undefined instead of null
     }
   };
   composed.on = (name, handler) => {
